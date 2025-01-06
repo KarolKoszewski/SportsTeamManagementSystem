@@ -46,4 +46,44 @@ public class Team
             Console.WriteLine($"Nie ma zawodnika o imieniu: {name}");
         }
     }
+
+    public void ShowPlayers()
+    {
+        Console.WriteLine("Lista Wszystkich zawodników");
+        Console.WriteLine("---------------------------");
+
+        if (players.Count == 0)
+        {
+            Console.WriteLine("Druzyna nie ma zawdownikow");
+            return;
+        }
+
+        foreach (var player in players)
+        {
+            Console.WriteLine($"Imie: {player.Name}");
+            Console.WriteLine($"Pozycja: {player.Position}");
+            Console.WriteLine($"Punkty: {player.Score}");
+            Console.WriteLine("---------------------------");
+        }
+    }
+
+    public void ShowPlayersByPosition(string position)
+    {
+        Console.WriteLine($"Zawodnicy z pozycja: {position}");
+        Console.WriteLine("---------------------------");
+        
+        bool found = false;
+        foreach (var player in players)
+        {
+            if (player.Position == position)
+            {
+                Console.WriteLine($"Imie: {player.Name}, Punkty: {player.Score}");
+            }
+        }
+
+        if (!found)
+        {
+            Console.WriteLine($"Nie ma zawodnika o pozycji: {position}");
+        }
+    }
 }
