@@ -86,4 +86,24 @@ public class Team
             Console.WriteLine($"Nie ma zawodnika o pozycji: {position}");
         }
     }
+
+    public void ShowTeamAverageScore()
+    {
+        if (players.Count == 0)
+        {
+            Console.WriteLine("brak zawodnikow");
+            return;
+        }
+
+        int wynikCalosc = 0;
+        foreach (var player in players)
+        {
+            wynikCalosc += player.Score;
+        }
+        
+        double averageScore = wynikCalosc / players.Count;
+        
+        Console.WriteLine($"Wynik: {players.Count} na pozycja: {averageScore}");
+    }
+    
 }
